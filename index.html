@@ -10,3 +10,37 @@
         <script src="js/scripts.js"></script>
     </body>
 </html>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class='grid-container'>
+      <div>
+        <h1>Form View</h1>
+        <p>Input one of the following usernames(<strong>anne, sam, megan</strong>) to display the age, then click on 'Submit' button: </p>
+        <form >
+          <label for="username">Username:</label>
+          <input id="username" name="username" type="text">
+          <button type='button'>Submit</button>
+        </form>
+      </div>
+      <div>
+        <h1>Results View</h1>
+        <p>
+          Entered username: <span id='username_key'></span>
+          <br>
+          <br>
+          User's Age: <span id='age'></span>
+        </p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
