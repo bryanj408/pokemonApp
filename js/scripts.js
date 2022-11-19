@@ -17,18 +17,18 @@ let pokemonList = [
 ];
 
 //for loop iterating through pokemonList array
-//
-for (i=0; i < pokemonList.length; i++) {
-  document.write(pokemonList[i].name +  ' (height:' + pokemonList[i].height + ') ' ); 
+//remember, you can use HTML inside a string within JavaScript i.e. '<p>'
+//nested for loop inside printArrayDetails function
+function printArrayDetails(){
+  for (i=0; i < pokemonList.length; i++) {
+    document.write('<p>' + pokemonList[i].name +  ' (height:' + pokemonList[i].height + ') ' ); 
 
-  if (pokemonList[i].height > 7){
-    document.write(' - This one\'s a big guy! ');
+    //calls out pokemon with a height less then 7 and prints next to it's name
+    if (pokemonList[i].height > 7){
+      document.write(' - This one\'s a big guy! ');
+    }
   }
 }
-
-
-
-
 
 
 
@@ -54,5 +54,6 @@ for (i=0; i < pokemonList.length; i++) {
 //   console.log(i);
 //   i++;
 // }
+
 
 
