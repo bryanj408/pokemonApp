@@ -16,6 +16,7 @@ let pokemonList = [
   }
 ];
 
+
 //for loop iterating through pokemonList array
 //remember, you can use HTML inside a string within JavaScript i.e. '<p>'
 //nested for loop inside printArrayDetails function
@@ -30,10 +31,7 @@ function printArrayDetails(){
   }
 }
 
-
-
-
-
+printArrayDetails();
 
 
 
