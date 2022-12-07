@@ -36,9 +36,9 @@ let pokemonRepository = (function () {
 //console.log(pokemonRepository.getAll());
 
 //forEach() function instead of for loop
-pokemonRepository.forEach(function(pokemon) {
-  console.log(pokemonRepository.getAll());
-})
+pokemonRepository.getAll().forEach( pokemon => console.log(pokemon)); 
+  
+
 
 
 //----------------------------------------------------------------------------------------------------------------------
