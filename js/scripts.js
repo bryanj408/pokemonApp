@@ -1,35 +1,44 @@
 // //Starting an array of pokemon (array with objects)
-let pokemonList = [
-  { name: 'Bulbasaur', 
-    height: 7, 
-    types: ['grass', 'poison'] 
-  },
-  { 
-    name: 'Charmander', 
-    height: 8, 
-    types: ['fire'] 
-  },
-  { 
-    name: 'Weedle', 
-    height: 5, 
-    types: ['bug,', 'poison']
+
+let pokemonRepository = (function () {
+  
+  let pokemonList = [
+    { name: 'Bulbasaur', 
+      height: 7, 
+      types: ['grass', 'poison'] 
+    },
+    { 
+      name: 'Charmander', 
+      height: 8, 
+      types: ['fire'] 
+    },
+    { 
+      name: 'Weedle', 
+      height: 5, 
+      types: ['bug,', 'poison']
+    }
+  ];
+
+  function add(pokemon) {
+    pokemonList.push(pokemon);
   }
-];
+
+  function getAll() {
+    return pokemonList;
+  }
+
+  return {
+    add: add,
+    getAll: getAll
+  };
+
+})();
+//console.log(pokemonRepository.getAll());
 
 //forEach() function instead of for loop
-pokemonList.forEach(function(pokemon) {
-  document.write( '<p>' + pokemon.name + ' ' + pokemon.height + ' ' + pokemon.types);
-
-  //logged to show array iteration
-  console.log(pokemon);
-
-  if(pokemon.height > 7) {
-    document.write(' -- That is one big pokemon');
-  }
-
+pokemonRepository.forEach(function(pokemon) {
+  console.log(pokemonRepository.getAll());
 })
-
-//printArrayDetails();
 
 
 //----------------------------------------------------------------------------------------------------------------------
