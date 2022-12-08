@@ -20,7 +20,17 @@ let pokemonRepository = (function () {
   ];
 
   function add(pokemon) {
+    if (typeof pokemon !== 'object' && typeof pokemon !== 'string') {
+      console.log('Please enter a pokemon');
+    }
     pokemonList.push(pokemon);
+    
+  }
+
+  //can't figure out remove. splice erases whole array but not specific pokemon
+  function remove(pokemon) {
+    pokemonList.splice(pokemon);
+    return pokemonList;
   }
 
   function getAll() {
@@ -29,6 +39,7 @@ let pokemonRepository = (function () {
 
   return {
     add: add,
+    remove: remove,
     getAll: getAll
   };
 
@@ -38,6 +49,13 @@ let pokemonRepository = (function () {
 //forEach() function instead of for loop
 pokemonRepository.getAll().forEach( pokemon => console.log(pokemon)); 
   
+
+
+
+
+
+
+
 
 
 
