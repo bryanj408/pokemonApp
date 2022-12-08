@@ -24,13 +24,17 @@ let pokemonRepository = (function () {
       console.log('Please enter a pokemon');
     }
     pokemonList.push(pokemon);
-    
   }
 
   //can't figure out remove. splice erases whole array but not specific pokemon
-  function remove(pokemon) {
-    pokemonList.splice(pokemon);
-    return pokemonList;
+  // function remove(pokemon) {
+  //   delete pokemonList(pokemon);
+  //   return pokemonList;
+  // }
+
+  //trying to implement filter
+  function sortPokemon() {
+    pokemonList.filter(pokemon => pokemon.name );
   }
 
   function getAll() {
@@ -39,24 +43,18 @@ let pokemonRepository = (function () {
 
   return {
     add: add,
-    remove: remove,
+    sortPokemon: sortPokemon,
+    //remove: remove,
     getAll: getAll
   };
 
 })();
-//console.log(pokemonRepository.getAll());
+
 
 //forEach() function instead of for loop
-pokemonRepository.getAll().forEach( pokemon => console.log(pokemon)); 
-  
+//pokemonRepository.getAll().forEach( pokemon => console.log(pokemon)); 
 
-
-
-
-
-
-
-
+console.log(pokemonRepository.getAll());
 
 
 //----------------------------------------------------------------------------------------------------------------------
