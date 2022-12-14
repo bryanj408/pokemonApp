@@ -23,21 +23,46 @@ let pokemonRepository = (function () {
     pokemonList.push(pokemon);
   }
 
+  function addListItem(pokemon) {
+    let list = document.querySelector('ul');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('button');
+    listItem.appendChild(button);
+    list.appendChild(listItem);
+  }
+
+  // function removePokemon(pokemon) {
+  //   pokemonList.remove(pokemon.name);
+  //   //return pokemonList;
+  // }
+
   function getAll() {
     return pokemonList;
   }
 
   return {
     add: add,
+    addListItem: addListItem,
+    //removePokemon: removePokemon,
     getAll: getAll
   };
 
 })();
-//console.log(pokemonRepository.getAll());
 
-//forEach() function instead of for loop
-pokemonRepository.getAll().forEach( pokemon => console.log(pokemon)); 
-  
+//forEach() function instead of for loop 
+pokemonRepository.getAll().forEach( pokemon => {
+  pokemonRepository.addListItem(pokemon);
+})
+
+window.addEventListener('keydown', event => {
+  let survey_form = document.querySelector('#survey_form');
+  let isFormHidden = survey_form.classList.contains('hidden');
+  if (!isFormHidden && event.key === 'Escape') {
+    survey_form.classList.add('hidden');
+  }
+});
 
 
 
@@ -59,3 +84,9 @@ pokemonRepository.getAll().forEach( pokemon => console.log(pokemon));
 //   let data = {};
 //   //code here
 // }
+
+
+// let container = document.querySelector('.container');
+// let button = document.createElement('button');
+// button.innerText = 'Click Me';
+// container.appendChild(button);
