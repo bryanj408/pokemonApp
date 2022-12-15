@@ -1,4 +1,5 @@
-// //Starting an array of pokemon (array with objects)
+//IIFE holding pokemon array to iterate through with forEach() to read
+//off a list of pokemon to display to user with more details option
 
 let pokemonRepository = (function () {
   
@@ -19,10 +20,6 @@ let pokemonRepository = (function () {
     }
   ];
 
-  function add(pokemon) {
-    pokemonList.push(pokemon);
-  }
-
   function addListItem(pokemon) {
     let list = document.querySelector('ul');
     let listItem = document.createElement('li');
@@ -31,12 +28,23 @@ let pokemonRepository = (function () {
     button.classList.add('button');
     listItem.appendChild(button);
     list.appendChild(listItem);
+    //called function buttonCall() to listen for 'click'
+    buttonCall(button, pokemon);
   }
 
-  // function removePokemon(pokemon) {
-  //   pokemonList.remove(pokemon.name);
-  //   //return pokemonList;
-  // }
+  function buttonCall(button, pokemon) {
+    button.addEventListener('click', function() {
+      showDetails(pokemon);
+    })
+  }
+
+  function showDetails(pokemon) {
+    console.log(pokemon);
+  }
+
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
 
   function getAll() {
     return pokemonList;
@@ -45,7 +53,6 @@ let pokemonRepository = (function () {
   return {
     add: add,
     addListItem: addListItem,
-    //removePokemon: removePokemon,
     getAll: getAll
   };
 
