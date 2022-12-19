@@ -20,6 +20,9 @@ let pokemonRepository = (function () {
     }
   ];
 
+  //addListItem() creates and selects ul, li, button, and append to eachother tofunction
+  //together. Iterates through forEach() with getAll() to get list of pokemon and connect
+  //button to it. 
   function addListItem(pokemon) {
     let list = document.querySelector('ul');
     let listItem = document.createElement('li');
@@ -28,18 +31,25 @@ let pokemonRepository = (function () {
     button.classList.add('button');
     listItem.appendChild(button);
     list.appendChild(listItem);
-    //called function buttonCall() to listen for 'click'
+    //calling function buttonCall() to listen for 'click'
     buttonCall(button, pokemon);
   }
 
-  function buttonCall(button, pokemon) {
+  //listens for 'click' and will implement showDetails() details of each pokemon soon
+  function buttonCall(button) {
     button.addEventListener('click', function() {
-      showDetails(pokemon);
+      showDetails();
     })
   }
 
-  function showDetails(pokemon) {
-    console.log(pokemon);
+  function showDetails() {   
+    console.log('test');
+    // window.addEventListener('keydown', function(event) {
+    //   let buttonHidden = button.classList.contains('hidden');
+    //   if (!buttonHidden && event.key === 'Escape') {
+    //     button.classList.add('hidden');
+    //   }
+    // });
   }
 
   function add(pokemon) {
@@ -62,16 +72,6 @@ let pokemonRepository = (function () {
 pokemonRepository.getAll().forEach( pokemon => {
   pokemonRepository.addListItem(pokemon);
 })
-
-window.addEventListener('keydown', event => {
-  let survey_form = document.querySelector('#survey_form');
-  let isFormHidden = survey_form.classList.contains('hidden');
-  if (!isFormHidden && event.key === 'Escape') {
-    survey_form.classList.add('hidden');
-  }
-});
-
-
 
 //----------------------------------------------------------------------------------------------------------------------
 

@@ -2,40 +2,72 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: content-box;
 }
 
 /*styling the container that holds button*/
 .pokemon-list {
     margin-top: 30px;
-    display: flex;
-    justify-content: center;
+    text-align: center;
+    border: 1px solid black;
+    margin-left: 33%;
+    margin-right: 33%;
+    box-shadow: 0 0 20px 0 #999; 
+    padding: 15px 0px;
+    border-radius: 5px;
 }
 
 .listItem {
     display: none;
 }
 
+/*removing dots from ul list*/
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin: 
+}
+
 .button {
-    border: 2px solid black;
-    padding: 10px 30px;
+    border: 1.5px solid black;
+    padding: 15px 15px;
     text-transform: uppercase;
-    background-color: rgb(195, 155, 155);
+    background-color: rgb(18, 191, 203);
     margin: 5px;
-    transition: .3s ease;
+    width: 80%;
+    
+    cursor: pointer;
 }
 
-.button:hover {
-    background-color: white;
-}
+/*Might implement later to style container when showDetails() is called*/
+/* .container {
+    border: 2px solid black;
+    height: 350px;
+    width: 350px;
+    margin-left: 33%;
+    margin-right: 33%;
+    box-shadow: 0 0 20px 0 #999;
+    padding: 15px 0px;
+    border-radius: 5px;
+    margin-top: 30px;
+    text-align: center;
+} */
 
+/*hides showDetails() when you hit escape*/
 .hidden {
     display: none;
 }
 
+.button:hover {
+    background-color: white;
+    transition: .4s ease;
+}
 
 /*START responsive css for desktop*/
 @media only screen and (min-width: 1200px) {
 
 }
 /*END responsive css for desktop*/
+
