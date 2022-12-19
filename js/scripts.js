@@ -1,5 +1,4 @@
-//IIFE holding pokemon array to iterate through with forEach() to read
-//off a list of pokemon to display to user with more details option
+//Starting an array of pokemon (array with objects)
 
 let pokemonRepository = (function () {
   
@@ -20,9 +19,12 @@ let pokemonRepository = (function () {
     }
   ];
 
-  //addListItem() creates and selects ul, li, button, and append to eachother tofunction
-  //together. Iterates through forEach() with getAll() to get list of pokemon and connect
-  //button to it. 
+  function add(pokemon) {
+    pokemonList.push(pokemon);
+  }
+
+  //function to create li/button/class for pokemon ui layout
+  //which iterates through forEach() outside of iife
   function addListItem(pokemon) {
     let list = document.querySelector('ul');
     let listItem = document.createElement('li');
@@ -31,30 +33,12 @@ let pokemonRepository = (function () {
     button.classList.add('button');
     listItem.appendChild(button);
     list.appendChild(listItem);
-    //calling function buttonCall() to listen for 'click'
-    buttonCall(button, pokemon);
   }
 
-  //listens for 'click' and will implement showDetails() details of each pokemon soon
-  function buttonCall(button) {
-    button.addEventListener('click', function() {
-      showDetails();
-    })
-  }
-
-  function showDetails() {   
-    console.log('test');
-    // window.addEventListener('keydown', function(event) {
-    //   let buttonHidden = button.classList.contains('hidden');
-    //   if (!buttonHidden && event.key === 'Escape') {
-    //     button.classList.add('hidden');
-    //   }
-    // });
-  }
-
-  function add(pokemon) {
-    pokemonList.push(pokemon);
-  }
+  // function removePokemon(pokemon) {
+  //   pokemonList.remove(pokemon.name);
+  //   //return pokemonList;
+  // }
 
   function getAll() {
     return pokemonList;
@@ -63,15 +47,34 @@ let pokemonRepository = (function () {
   return {
     add: add,
     addListItem: addListItem,
+    //removePokemon: removePokemon,
     getAll: getAll
   };
 
 })();
 
-//forEach() function instead of for loop 
+//forEach() iterating through addListItem() within iife 
 pokemonRepository.getAll().forEach( pokemon => {
   pokemonRepository.addListItem(pokemon);
 })
+
+//practicing event listener/keydown/classList creation 
+window.addEventListener('keydown', event => {
+  let survey_form = document.querySelector('#survey_form');
+  let isFormHidden = survey_form.classList.contains('hidden');
+  if (!isFormHidden && event.key === 'Escape') {
+    survey_form.classList.add('hidden');
+  }
+});
+
+function runThisLater() {
+  console.log('burgers');
+}
+
+console.log('pizza');
+setTimeout(runThisLater, 1000);
+console.log('salad');
+
 
 //----------------------------------------------------------------------------------------------------------------------
 
