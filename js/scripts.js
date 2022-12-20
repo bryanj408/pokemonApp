@@ -35,11 +35,6 @@ let pokemonRepository = (function () {
     list.appendChild(listItem);
   }
 
-  // function removePokemon(pokemon) {
-  //   pokemonList.remove(pokemon.name);
-  //   //return pokemonList;
-  // }
-
   function getAll() {
     return pokemonList;
   }
@@ -47,7 +42,6 @@ let pokemonRepository = (function () {
   return {
     add: add,
     addListItem: addListItem,
-    //removePokemon: removePokemon,
     getAll: getAll
   };
 
@@ -67,13 +61,6 @@ window.addEventListener('keydown', event => {
   }
 });
 
-function runThisLater() {
-  console.log('burgers');
-}
-
-console.log('pizza');
-setTimeout(runThisLater, 1000);
-console.log('salad');
 
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -94,9 +81,3 @@ console.log('salad');
 //   let data = {};
 //   //code here
 // }
-
-
-// let container = document.querySelector('.container');
-// let button = document.createElement('button');
-// button.innerText = 'Click Me';
-// container.appendChild(button);
