@@ -33,6 +33,11 @@ let pokemonRepository = (function () {
     button.classList.add('button');
     listItem.appendChild(button);
     list.appendChild(listItem);
+
+    //logs pokemon details when button is clicked
+    button.addEventListener('click', function() {
+      console.log(pokemon);
+    })
   }
 
   function getAll() {
@@ -53,31 +58,12 @@ pokemonRepository.getAll().forEach( pokemon => {
 })
 
 //practicing event listener/keydown/classList creation 
-window.addEventListener('keydown', event => {
-  let survey_form = document.querySelector('#survey_form');
-  let isFormHidden = survey_form.classList.contains('hidden');
-  if (!isFormHidden && event.key === 'Escape') {
-    survey_form.classList.add('hidden');
-  }
-});
+// window.addEventListener('keydown', event => {
+//   let survey_form = document.querySelector('#survey_form');
+//   let isFormHidden = survey_form.classList.contains('hidden');
+//   if (!isFormHidden && event.key === 'Escape') {
+//     survey_form.classList.add('hidden');
+//   }
+// });
 
 
-
-//----------------------------------------------------------------------------------------------------------------------
-
-// arrow function
-// if you have it on one line, you don't need curly braces around your statements (code fired)
-// also, you have an implied return statement when on one line. if multiple lines, write return statement
-//array.forEach( item => console.log(item) );
-
-//IIFE (immediately invoked function expression)
-// (function name () {
-//   let data = {};
-//   //code here
-// })();
-
-// //standard function
-// function name () {
-//   let data = {};
-//   //code here
-// }
