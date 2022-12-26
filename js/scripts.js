@@ -2,22 +2,8 @@
 
 let pokemonRepository = (function () {
   
-  let pokemonList = [
-    { name: 'Bulbasaur', 
-      height: 7, 
-      types: ['grass', 'poison'] 
-    },
-    { 
-      name: 'Charmander', 
-      height: 8, 
-      types: ['fire'] 
-    },
-    { 
-      name: 'Weedle', 
-      height: 5, 
-      types: ['bug,', 'poison']
-    }
-  ];
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   function add(pokemon) {
     pokemonList.push(pokemon);
@@ -40,22 +26,45 @@ let pokemonRepository = (function () {
     })
   }
 
+    //function that uses fetch and promise to load list of pokemon
+    function loadList() {
+      return fetch(apiUrl).then((response) => {
+        return response.json();
+      }).then((json) => {
+        json.results.forEach((item) => {
+          let pokemon = {
+            name: item.name,
+            detailsUrl: item.url,
+          };
+          add(pokemon);
+        });
+      }).catch((e) => {
+        console.log(e);
+      })
+    }
+
   function getAll() {
     return pokemonList;
   }
 
   return {
     add: add,
+    loadList: loadList,
     addListItem: addListItem,
     getAll: getAll
   };
 
 })();
 
-//forEach() iterating through addListItem() within iife 
-pokemonRepository.getAll().forEach( pokemon => {
-  pokemonRepository.addListItem(pokemon);
-})
+//iterates through repository/loadlist then uses promise to load through repository/getAll
+//forEach(parameter) of repository/addListItem(parameter)
+pokemonRepository.loadList().then(() => {
+  pokemonRepository.getAll().forEach((pokemon) => {
+    pokemonRepository.addListItem(pokemon);
+  });
+});
+
+
 
 //practicing event listener/keydown/classList creation 
 // window.addEventListener('keydown', event => {
