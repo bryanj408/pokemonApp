@@ -7,27 +7,25 @@
 
 /*styling the container that holds button*/
 .pokemon-list {
-    margin-top: 30px;
+    margin-top: 80px;
     text-align: center;
     border: 1px solid black;
-    margin-left: 33%;
-    margin-right: 33%;
+    margin-left: 20%;
+    margin-right: 20%;
     box-shadow: 0 0 20px 0 #999; 
     padding: 15px 0px;
     border-radius: 5px;
+    column-count: 3;
 }
 
 .listItem {
     display: none;
+    column-count: 20;
 }
 
 /*removing dots from ul list*/
 ul {
     list-style-type: none;
-}
-
-li {
-    margin: 
 }
 
 .button {
@@ -36,9 +34,10 @@ li {
     text-transform: uppercase;
     background-color: rgb(18, 191, 203);
     margin: 5px;
-    width: 80%;
-    
+    width: 70%;
     cursor: pointer;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 /*Might implement later to style container when showDetails() is called*/
