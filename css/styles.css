@@ -55,12 +55,12 @@ ul {
 } */
 
 /*hides showDetails() when you hit escape*/
-.hidden {
+/* .hidden {
     display: none;
-}
+} */
 
 .button:hover {
-    background-color: white;
+    background-color: aliceblue;
     transition: .4s ease;
 }
 
