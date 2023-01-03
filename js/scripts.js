@@ -67,9 +67,26 @@ let pokemonRepository = (function () {
     }
   }
 
+  //deleting console.log(pokemon) to no longer log details to console. Building modal instead
   function showDetails(pokemon) {
     loadDetails(pokemon).then(() => {
-      console.log(pokemon);
+      
+      //modalContainer will be 100% x 100% full screen behind modal
+      let modalContainer = document.querySelector('#modal-container');
+
+      //created an IIFE within showDetails()
+      (function showModal(title, text) {
+
+          //clears all existing modal content every time
+          modalContainer.innerHTML = '';
+          
+          //creating the actual modal that will be discplayed
+          let modal = document.createElement('div');
+          modal.classList.add('.modal');
+  
+          //adds the new modal content
+          
+      })();
     });
   }
 
@@ -94,16 +111,5 @@ pokemonRepository.loadList().then(() => {
     pokemonRepository.addListItem(pokemon);
   });
 });
-
-
-
-//practicing event listener/keydown/classList creation 
-// window.addEventListener('keydown', event => {
-//   let survey_form = document.querySelector('#survey_form');
-//   let isFormHidden = survey_form.classList.contains('hidden');
-//   if (!isFormHidden && event.key === 'Escape') {
-//     survey_form.classList.add('hidden');
-//   }
-// });
 
 
