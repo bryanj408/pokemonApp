@@ -17,7 +17,7 @@ let pokemonRepository = (function () {
     list.appendChild(listItem);
 
     //logs pokemon details when button is clicked
-    button.addEventListener('click', function(event) {
+    button.addEventListener('click', function() {
       showDetails(pokemon); 
     })
   }
@@ -69,25 +69,46 @@ let pokemonRepository = (function () {
 
   //deleting console.log(pokemon) to no longer log details to console. Building modal instead
   function showDetails(pokemon) {
-    loadDetails(pokemon).then(() => {
+    
       
       //modalContainer will be 100% x 100% full screen behind modal
       let modalContainer = document.querySelector('#modal-container');
-
-      //created an IIFE within showDetails()
-      (function showModal(title, text) {
+      let pokemonHeight = pokemon.height;
+      let pokemonTypes = pokemon.types;
 
           //clears all existing modal content every time
           modalContainer.innerHTML = '';
           
           //creating the actual modal that will be discplayed
-          let modal = document.createElement('div');
-          modal.classList.add('.modal');
+          let modal = document.createElement('modal');
+          modal.classList.add('modal');
   
           //adds the new modal content
-          
-      })();
-    });
+          let closeModalButton = document.createElement('button-close');
+          closeModalButton.classList.add('modal-close');
+          closeModalButton.innerText = 'Close';
+          closeModalButton.addEventListener('click', hideModal);
+
+          let modalTitle = document.createElement('h1');
+          modalTitle.innerText = pokemon.name;
+
+          let modalText = document.createElement('p');
+          modalText.innerText = pokemonHeight; 
+
+          let modalSprite = document.createElement('img');
+          modalSprite.classList.add('modal-sprite');
+
+          modal.appendChild(closeModalButton);
+          modal.appendChild(modalTitle);
+          modal.appendChild(modalText);
+          modal.appendChild(modalSprite);
+          modalContainer.appendChild(modal);
+
+          modalContainer.classList.add('is-visible');
+
+      function hideModal() {
+        modalContainer.classList.remove('is-visible');
+      }
   }
 
   function getAll() {
@@ -109,6 +130,7 @@ let pokemonRepository = (function () {
 pokemonRepository.loadList().then(() => {
   pokemonRepository.getAll().forEach((pokemon) => {
     pokemonRepository.addListItem(pokemon);
+    pokemonRepository.loadDetails(pokemon);
   });
 });
 
