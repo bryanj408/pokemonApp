@@ -1,8 +1,8 @@
 //Starting an array of pokemon (array with objects)
-
 let pokemonRepository = (function () {
   
   let pokemonList = [];
+  let typesArray = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   //function to create li/button/class for pokemon ui layout
@@ -30,7 +30,7 @@ let pokemonRepository = (function () {
       json.results.forEach((item) => {
         let pokemon = {
           name: item.name,
-          detailsUrl: item.url,
+          detailsUrl: item.url
         };
         add(pokemon);
       });
@@ -39,76 +39,89 @@ let pokemonRepository = (function () {
     })
   }
 
-  //uses the detailsUrl property to load the detailed data for a given pokemon
-  function loadDetails(item) {
-    let url = item.detailsUrl;
-    return fetch(url).then((response) => {
-      return response.json();
-    }).then((details) => {
-      //come back to add 2nd sprite image
-      item.imageUrl = details.sprites.front_default;
-      item.height = details.height;
-      item.types = details.types;
-    }).catch((e) => {
-      console.error(e);
-    });
+ //uses the detailsUrl property to load the detailed data for a given pokemon
+ function loadDetails(item) {
+  let url = item.detailsUrl;
+  return fetch(url).then((response) => {
+    return response.json();
+  }).then((details) => {
+    //come back to add 2nd sprite image
+    item.imageUrl = details.sprites.front_default;
+    item.height = details.height;
+    item.types = details.types;
+    item.types = details.types;
+
+    // for (let i = 0; i >= typesArray.length; i++) {
+      
+    // }
+
+  }).catch((e) => {
+    console.error(e);
+  });
+}
+
+function showModal(title, text, img) {
+
+    //modalContainer will be 100% x 100% full screen behind modal
+    let modalContainer = document.querySelector('#modal-container');
+
+    //clears all existing modal content every time
+    modalContainer.innerHTML = '';
+    
+    //creating the actual modal that will be discplayed
+    let modal = document.createElement('modal');
+    modal.classList.add('modal');
+
+    //adds the new modal content
+    let closeModalButton = document.createElement('button-close');
+    closeModalButton.classList.add('button-close');
+    closeModalButton.innerText = 'Close';
+    closeModalButton.addEventListener('click', hideModal);
+
+    let modalTitle = document.createElement('h1');
+    modalTitle.classList.add('h1');
+    modalTitle.innerText = title;
+
+    let modalText = document.createElement('p');
+    modalText.innerText = text;
+
+
+    let modalSprite = document.createElement('img');
+    modalSprite.classList.add('img');
+    modalSprite.setAttribute('src', img);
+    modalSprite.setAttribute('alt', 'Pokemon image');
+    
+    modal.appendChild(closeModalButton);
+    modal.appendChild(modalTitle);
+    modal.appendChild(modalText);
+    modal.appendChild(modalSprite);
+    modalContainer.appendChild(modal);
+
+    modalContainer.classList.add('is-visible');
+
+    modalContainer.addEventListener('click', (e) => {
+      let target = e.target;
+      if (target === modalContainer) {
+        hideModal();
+      }
+    })
+}
+
+  function hideModal() {
+    let modalContainer = document.querySelector('#modal-container');
+    modalContainer.classList.remove('is-visible');
   }
 
-  //validates typeof pokemon being added, prompts user to try again if failed
+  //pushes pokemon to pokemonList[] from apiUrl
   function add(pokemon) {
-    if (
-      typeof pokemon === 'object' &&
-      'name' in pokemon &&
-      'detailsUrl' in pokemon
-    ) {
-      pokemonList.push(pokemon);
-    }else{
-      console.log('Invalid pokemon. Please try again');
-    }
+    pokemonList.push(pokemon);
   }
 
   //deleting console.log(pokemon) to no longer log details to console. Building modal instead
   function showDetails(pokemon) {
-    
-      
-      //modalContainer will be 100% x 100% full screen behind modal
-      let modalContainer = document.querySelector('#modal-container');
-      let pokemonHeight = pokemon.height;
-      let pokemonTypes = pokemon.types;
-
-          //clears all existing modal content every time
-          modalContainer.innerHTML = '';
-          
-          //creating the actual modal that will be discplayed
-          let modal = document.createElement('modal');
-          modal.classList.add('modal');
-  
-          //adds the new modal content
-          let closeModalButton = document.createElement('button-close');
-          closeModalButton.classList.add('modal-close');
-          closeModalButton.innerText = 'Close';
-          closeModalButton.addEventListener('click', hideModal);
-
-          let modalTitle = document.createElement('h1');
-          modalTitle.innerText = pokemon.name;
-
-          let modalText = document.createElement('p');
-          modalText.innerText = pokemonHeight; 
-
-          let modalSprite = document.createElement('img');
-          modalSprite.classList.add('modal-sprite');
-
-          modal.appendChild(closeModalButton);
-          modal.appendChild(modalTitle);
-          modal.appendChild(modalText);
-          modal.appendChild(modalSprite);
-          modalContainer.appendChild(modal);
-
-          modalContainer.classList.add('is-visible');
-
-      function hideModal() {
-        modalContainer.classList.remove('is-visible');
-      }
+    loadDetails(pokemon).then(() => {
+      showModal(pokemon.name, pokemon.height, pokemon.imageUrl );
+    })
   }
 
   function getAll() {
