@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto:wght@100&display=swap');
+
 /*resets browser styling to nill*/
 *{
     margin: 0;
@@ -12,7 +14,7 @@
     border: 1px solid black;
     margin-left: 20%;
     margin-right: 20%;
-    box-shadow: 0 0 20px 0 #999; 
+    box-shadow: 0 0 10px 0 #999; 
     padding: 15px 0px;
     border-radius: 5px;
     column-count: 3;
@@ -32,12 +34,19 @@ ul {
     border: 1.5px solid black;
     padding: 15px 15px;
     text-transform: uppercase;
-    background-color: rgb(18, 191, 203);
+    background-color: rgb(230, 230, 230);
     margin: 5px;
     width: 70%;
     cursor: pointer;
     margin-left: 10%;
     margin-right: 10%;
+    font-size: 20px;
+    font-family: 'Lilita One', cursive;
+}
+
+.button:hover {
+    background-color: aliceblue;
+    transition: .3s ease;
 }
 
 #modal-container {
@@ -64,16 +73,53 @@ ul {
     display: inline-block;
     box-sizing: border-box;
     background: #fff;
-    padding: 15px;
+    padding: 10px;
     width: 100%;
     max-width: 700px;
-    text-align: left;
+    text-align: center;
+    font-family: 'Lilita One', cursive;
 }
 
-.button:hover {
-    background-color: aliceblue;
-    transition: .4s ease;
+.h1 {
+    margin-left: 13px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 50px;
+    text-transform: uppercase;
 }
+
+.p {
+    padding-top: 30px;
+    font-size: 20px;
+}
+
+.modal-img {
+    width: 200px;
+    height: 200px;
+}
+
+.modal-close {
+    border: none;
+    background: white;
+    float: right;
+    font-size: 20px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.modal-close:hover {
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 15%;
+    
+}
+
+
+
+
+
+
+
 
 /*START responsive css for desktop*/
 @media only screen and (min-width: 1200px) {
