@@ -47,14 +47,17 @@ let pokemonRepository = (function () {
     //come back to add 2nd sprite image
     item.imageUrl = details.sprites.front_default;
     item.height = details.height;
-    item.types = details.types;
-    item.types = details.types;
+    item.types = []
+
+    details.types.forEach((detail) => {
+      item.types.push(' ' + detail.type.name);
+    });
   }).catch((e) => {
     console.error(e);
   });
 }
 
-function showModal(title, text, img) {
+function showModal(title, text, types, img) {
 
     //modalContainer will be 100% x 100% full screen behind modal
     let modalContainer = document.querySelector('#modal-container');
@@ -80,6 +83,10 @@ function showModal(title, text, img) {
     modalText.classList.add('p');
     modalText.innerText = text;
 
+    let modalTypes = document.createElement('p');
+    modalTypes.classList.add('modal-types');
+    modalTypes.innerText = types;
+
     let modalSprite = document.createElement('img');
     modalSprite.classList.add('modal-img');
     modalSprite.setAttribute('src', img);
@@ -89,6 +96,7 @@ function showModal(title, text, img) {
     modal.appendChild(modalTitle);
     modal.appendChild(modalText);
     modal.appendChild(modalSprite);
+    modal.appendChild(modalTypes);
     modalContainer.appendChild(modal);
 
     modalContainer.classList.add('is-visible');
@@ -123,7 +131,7 @@ function showModal(title, text, img) {
   //deleting console.log(pokemon) to no longer log details to console. Building modal instead
   function showDetails(pokemon) {
     loadDetails(pokemon).then(() => {
-      showModal(pokemon.name, 'Height: ' + pokemon.height, pokemon.imageUrl );
+      showModal(pokemon.name, 'Height: ' + pokemon.height, 'Type: ' + pokemon.types, pokemon.imageUrl );
     })
   }
 
