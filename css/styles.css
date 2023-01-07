@@ -53,11 +53,13 @@ ul {
     margin-right: 10%;
     font-size: 20px;
     font-family: 'Lilita One', cursive;
+    opacity: 60%;
 }
 
 .button:hover {
     background-color: aliceblue;
     transition: .3s ease;
+    opacity: 100%;
 }
 
 #modal-container {
@@ -83,12 +85,13 @@ ul {
     margin: auto;
     display: inline-block;
     box-sizing: border-box;
-    background: #fff;
+    background-color: rgb(230, 230, 230);
     padding: 10px;
     width: 100%;
     max-width: 700px;
     text-align: center;
     font-family: 'Lilita One', cursive;
+    opacity: 93%;
 }
 
 .h1 {
@@ -117,7 +120,7 @@ ul {
 
 .modal-close {
     border: none;
-    background: white;
+    background-color: rgb(230, 230, 230);
     float: right;
     font-size: 20px;
     padding-right: 5px;
