@@ -142,9 +142,20 @@ ul {
 
 
 
-/*START responsive css for desktop*/
-@media only screen and (min-width: 1200px) {
-
+/*START responsive css for phones*/
+@media only screen and (max-width: 768px) {
+    .pokemon-list {
+        /* margin-top: 80px; */
+        text-align: right;
+        border: 1px solid black;
+        margin-left: 20%;
+        margin-right: 20%;
+        box-shadow: 0 0 10px 0 #999; 
+        padding: 15px 0px;
+        border-radius: 5px;
+        column-count: 1;
+        z-index: 1;
+    }
 }
 /*END responsive css for desktop*/
 

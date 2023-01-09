@@ -46,6 +46,7 @@ let pokemonRepository = (function () {
   }).then((details) => {
     //come back to add 2nd sprite image
     item.imageUrl = details.sprites.front_default;
+    item.image = details.sprites.back_default;
     item.height = details.height;
     item.types = []
 
