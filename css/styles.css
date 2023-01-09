@@ -64,6 +64,7 @@ ul {
 
 #modal-container {
     display: none;
+    transition-duration: 0.8s;
 }
 
 #modal-container.is-visible {
@@ -79,6 +80,7 @@ ul {
     overflow: auto;
     display: grid;
     text-align: center;
+    transition-duration: 0.8s;
 }
 
 .modal {
