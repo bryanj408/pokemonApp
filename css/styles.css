@@ -151,6 +151,19 @@ ul {
         overflow: hidden;
     }
 
+    .modal {
+        margin: auto;
+        display: inline-block;
+        box-sizing: border-box;
+        background-color: rgb(230, 230, 230);
+        padding: 10px;
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+        font-family: 'Lilita One', cursive;
+        opacity: 93%;
+    }
+
     /* change background image */
     .background-img {
         background-image: url(./background2.webp);
