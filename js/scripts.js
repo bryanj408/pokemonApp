@@ -159,4 +159,3 @@ pokemonRepository.loadList().then(() => {
   });
 });
 
-
