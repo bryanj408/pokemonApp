@@ -2,6 +2,10 @@
 let pokemonRepository = (function () {
   
   let pokemonList = [];
+
+  // added . to search but may have to come back to it
+  let inputField = document.querySelector('.search');
+
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   //function to create li/button/class for pokemon ui layout
@@ -57,6 +61,21 @@ let pokemonRepository = (function () {
     console.error(e);
   });
 }
+
+//implementing search feature for search box
+function filterPokemon(query) {
+  return pokemonList.filter(function (pokemon) {
+    //toLowerCase() method to make input not case-sensitive
+    let pokemonLowerCase = pokemon.name.toLowerCase();
+    let queryLowerCase = query.toLowerCase();
+    return pokemonLowerCase.startsWith(queryLowerCase);
+  });
+}
+inputField.addEventListener('input', function () {
+  let query = inputField.value;
+  let filteredList = filterPokemon(query);
+  filteredList.forEach(showDetails);
+});
 
 function showModal(title, text, types, img) {
 
@@ -146,6 +165,7 @@ function showModal(title, text, types, img) {
     loadDetails: loadDetails,
     showDetails: showDetails,
     addListItem: addListItem,
+    filterPokemon: filterPokemon,
     getAll: getAll
   };
 })();
@@ -158,4 +178,3 @@ pokemonRepository.loadList().then(() => {
     pokemonRepository.loadDetails(pokemon);
   });
 });
-
