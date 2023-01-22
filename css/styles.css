@@ -1,20 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Roboto:wght@100&display=swap');
 
 /*resets browser styling to nill*/
+/* GLOBAL STYLING */
 *{
     margin: 0;
     padding: 0;
     box-sizing: content-box;
 }
 
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/* NAVBAR STYLING */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    background-color: rgb(52, 48, 48);
+    color: #fff;
+}
+
+.search {
+    background-color: rgb(206, 218, 228);
+    width: 300px;
+    height: 44px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+input {
+    /* all: unset resets browser settings for search bar input styling */
+    all: unset;
+    font: 16px system-ui;
+    color: #000;
+    height: 100%;
+    width: 100%;
+    padding: 6px 10px;
+}
+
+/* changes the syling of the placeholder text */
+::placeholder {
+    color: #000;
+    opacity: 0.7;
+}
+
+.pokemon-img {
+    margin-left: 30px;
+    height: 45px;
+    width: 45px;
+}
+
 /*styling the container that holds button*/
 .pokemon-list {
-    /* margin-top: 80px; */
+    margin-top: 70px;
     text-align: right;
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    /* box-shadow: 0 0 10px 0 #999; */
     margin-left: 20%;
     margin-right: 20%;
-    box-shadow: 0 0 10px 0 #999; 
     padding: 15px 0px;
     border-radius: 5px;
     column-count: 2;
@@ -28,6 +82,8 @@
     z-index: -1;
     background-attachment: scroll;
     position: fixed;
+    top: 0;
+    opacity: 80%;
 }
 
 .listItem {
@@ -41,11 +97,12 @@ ul {
 }
 
 .button {
-    border: 1.5px solid black;
+    border: 2.5px solid rgb(206, 218, 228);;
     border-radius: 10px;
     padding: 15px 15px;
     text-transform: uppercase;
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(52, 48, 48);
+    /* background-color: rgb(230, 230, 230); */
     margin: 5px;
     width: 70%;
     cursor: pointer;
@@ -53,13 +110,15 @@ ul {
     margin-right: 10%;
     font-size: 20px;
     font-family: 'Lilita One', cursive;
-    opacity: 60%;
+    color: white;
+    opacity: 95%;
 }
 
 .button:hover {
-    background-color: aliceblue;
-    transition: .3s ease;
+    background-color: rgb(206, 218, 228);
+    transition: .25s ease;
     opacity: 100%;
+    color: black;
 }
 
 #modal-container {
@@ -80,7 +139,6 @@ ul {
     overflow: auto;
     display: grid;
     text-align: center;
-    transition-duration: 0.8s;
 }
 
 .modal {
@@ -93,7 +151,7 @@ ul {
     max-width: 700px;
     text-align: center;
     font-family: 'Lilita One', cursive;
-    opacity: 93%;
+    opacity: 95%;
 }
 
 .h1 {
