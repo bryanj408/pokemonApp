@@ -2,14 +2,24 @@
 <html lang="en">
     <head>
         <meta charset="'utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
-            <title>Pokemon App</title>
+            <title>Pokedex</title>
     </head>
-    <body class="body-class">
-        <img class="background-img" src="background2.jpeg">
-        <ul class="pokemon-list"></ul>
+
+    <body>
+        <img class="background-img" src="background2.jpeg" alt="background-img">
+        <!-- pokemon list hosting array of pokemon -->
+        <ul class="pokemon-list">
+        </ul>
+        <!-- modal container that hosts all pop-up modals -->
         <div id="modal-container"></div>
+        <!-- navabr -->
+        <nav class="navbar">   
+            <!-- search bar form with screen reader ability-->
+                <input class="search" type="search" placeholder="Search Pokemon.." aria-label="Search for Pokemon here">
+        </nav>
+            <!-- polyfills and script tags -->
             <script src="js/promise-polyfill.js"></script>
             <script src="js/fetch-polyfill.js"></script>
             <script src="js/scripts.js"></script>
