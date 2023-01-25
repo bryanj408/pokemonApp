@@ -71,10 +71,25 @@ function filterPokemon(query) {
     return pokemonLowerCase.startsWith(queryLowerCase);
   });
 }
-inputField.addEventListener('input', function () {
+inputField.addEventListener('keyup', function (e) {
   let query = inputField.value;
   let filteredList = filterPokemon(query);
-  filteredList.forEach(showDetails);
+
+  if (e.key === 'Delete' || e.key === 'Backspace') {
+    console.log('backspace was pressed');
+    hideModal();
+  }else{
+    filteredList.forEach(showDetails);
+  }
+
+      
+ 
+    // inputField.addEventListener('keyup', (e) => {
+    //   if (e.key === 'Delete' || e.key === 'Backspace') {
+    //     console.log('backspace was pressed');
+    //     hideModal();
+    //   }
+    // });
 });
 
 function showModal(title, text, types, img) {
@@ -138,10 +153,10 @@ function showModal(title, text, types, img) {
     });
 }
 
-  function hideModal() {
+  function hideModal () {
     let modalContainer = document.querySelector('#modal-container');
     modalContainer.classList.remove('is-visible');
-  }
+  };
 
   //pushes pokemon to pokemonList[] from apiUrl
   function add(pokemon) {

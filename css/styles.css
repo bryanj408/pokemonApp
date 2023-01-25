@@ -83,7 +83,7 @@ input {
     background-attachment: scroll;
     position: fixed;
     top: 0;
-    opacity: 80%;
+    opacity: 60%;
 }
 
 .listItem {
@@ -220,6 +220,17 @@ ul {
         text-align: center;
         font-family: 'Lilita One', cursive;
         opacity: 93%;
+    }
+
+    .background-img {
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-attachment: scroll;
+        position: fixed;
+        top: 0;
+        opacity: 80%;
     }
 }
 
