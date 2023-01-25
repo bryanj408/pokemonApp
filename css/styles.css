@@ -195,7 +195,7 @@ ul {
 
 
 /*START responsive css for phones*/
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 481px) {
     .pokemon-list {
         text-align: right;
         border: 1px solid black;
