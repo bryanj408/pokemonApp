@@ -237,7 +237,7 @@ ul {
 
 
 /*START responsive css for phones*/
-@media only screen and (max-width: 481px) {
+@media only screen and (max-width: 480px) {
     .pokemon-list {
         text-align: right;
         border: 1px solid black;
@@ -260,6 +260,7 @@ ul {
         width: 100%;
         max-width: 400px;
         text-align: center;
+        justify-content: center;
         font-family: 'Lilita One', cursive;
         opacity: 93%;
     }
