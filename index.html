@@ -15,7 +15,13 @@
         <!-- modal container that hosts all pop-up modals -->
         <div id="modal-container"></div>
         <!-- navabr -->
-        <nav class="navbar">   
+        <nav class="navbar"> 
+            <ul>
+                <!-- Creates home button that can scroll to top of page -->
+                <li><a href="#home" onclick="window.location.href='#top'" class="home">Home</a></li>
+                <li><a href="https://github.com/bryanj408" target="_blank" class="github">GitHub</a></li>
+            </ul>
+              
             <!-- search bar form with screen reader ability-->
                 <input class="search" type="search" placeholder="Search Pokemon.." aria-label="Search for Pokemon here">
         </nav>

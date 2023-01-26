@@ -16,6 +16,10 @@ li {
     list-style: none;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* NAVBAR STYLING */
 .navbar {
     position: fixed;
@@ -27,6 +31,44 @@ li {
     padding: 5px;
     background-color: rgb(52, 48, 48);
     color: #fff;
+}
+
+.home {
+    position: fixed;
+    left: 45px;
+    top: 15px;
+    align-items: center;
+    color: rgb(206, 218, 228); 
+    font-size: 30px;
+    transition: .25s ease;
+    font-family: 'Lilita One', cursive;
+}
+
+.home:hover {
+    font-size: 31px;
+    transition: .25s ease;
+    position: fixed;
+    color: rgb(242, 246, 249);
+    text-decoration: underline;
+}
+
+.github {
+    position: fixed;
+    right: 45px;
+    top: 15px;
+    align-items: center;
+    color: rgb(206, 218, 228); 
+    font-size: 30px;
+    transition: .25s ease;
+    font-family: 'Lilita One', cursive;
+}
+
+.github:hover {
+    font-size: 31px;
+    transition: .25s ease;
+    position: fixed;
+    color: rgb(242, 246, 249);
+    text-decoration: underline;
 }
 
 .search {
