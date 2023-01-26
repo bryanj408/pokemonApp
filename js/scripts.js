@@ -48,9 +48,8 @@ let pokemonRepository = (function () {
   return fetch(url).then((response) => {
     return response.json();
   }).then((details) => {
-    //come back to add 2nd sprite image
     item.imageUrl = details.sprites.front_default;
-    item.image = details.sprites.back_default;
+    item.imageUrlBack = details.sprites.back_default;
     item.height = details.height;
     item.types = []
 
@@ -81,15 +80,6 @@ inputField.addEventListener('keyup', function (e) {
   }else{
     filteredList.forEach(showDetails);
   }
-
-      
- 
-    // inputField.addEventListener('keyup', (e) => {
-    //   if (e.key === 'Delete' || e.key === 'Backspace') {
-    //     console.log('backspace was pressed');
-    //     hideModal();
-    //   }
-    // });
 });
 
 function showModal(title, text, types, img) {
@@ -122,15 +112,21 @@ function showModal(title, text, types, img) {
     modalTypes.classList.add('modal-types');
     modalTypes.innerText = types;
 
-    let modalSprite = document.createElement('img');
-    modalSprite.classList.add('modal-img');
-    modalSprite.setAttribute('src', img);
-    modalSprite.setAttribute('alt', 'Pokemon image');
+    let modalSpriteFront = document.createElement('img');
+    modalSpriteFront.classList.add('modal-img');
+    modalSpriteFront.setAttribute('src', img);
+    modalSpriteFront.setAttribute('alt', 'Pokemon image');
+
+    let modalSpriteBack = document.createElement('img');
+    modalSpriteFront.classList.add('modal-img');
+    modalSpriteFront.setAttribute('src', img);
+    modalSpriteFront.setAttribute('alt', 'Pokemon image');
     
     modal.appendChild(closeModalButton);
     modal.appendChild(modalTitle);
     modal.appendChild(modalText);
-    modal.appendChild(modalSprite);
+    modal.appendChild(modalSpriteFront);
+    modal.appendChild(modalSpriteBack);
     modal.appendChild(modalTypes);
     modalContainer.appendChild(modal);
 
@@ -166,7 +162,7 @@ function showModal(title, text, types, img) {
   //deleting console.log(pokemon) to no longer log details to console. Building modal instead
   function showDetails(pokemon) {
     loadDetails(pokemon).then(() => {
-      showModal(pokemon.name, 'Height: ' + pokemon.height, 'Type: ' + pokemon.types, pokemon.imageUrl );
+      showModal(pokemon.name, 'Height: ' + pokemon.height, 'Type: ' + pokemon.types, pokemon.imageUrl, pokemon.ImageUrlBack);
     })
   }
 
