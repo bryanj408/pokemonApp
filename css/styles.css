@@ -289,7 +289,7 @@ ul {
 
     .home {
         position: fixed;
-        left: 125px;
+        left: 80px;
         justify-content: center;
         align-items: center;
         color: rgb(206, 218, 228); 
@@ -300,7 +300,7 @@ ul {
 
     .github {
         position: fixed;
-        right: 120px;
+        right: 85px;
         top: 15px;
         align-items: center;
         color: rgb(206, 218, 228); 
