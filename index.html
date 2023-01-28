@@ -15,16 +15,13 @@
         <!-- modal container that hosts all pop-up modals -->
         <div id="modal-container"></div>
         <!-- navabr -->
-        <nav class="navbar"> 
-            <ul>
-                <!-- Creates home button that can scroll to top of page -->
-                <li><a href="#home" onclick="window.location.href='#top'" class="home">Home</a></li>
-                <li><a href="https://github.com/bryanj408" target="_blank" class="github">GitHub</a></li>
-            </ul>
-              
-            <!-- search bar form with screen reader ability-->
+        <div class="flex-container">
+                <a href="#home" onclick="window.location.href='#top'" class="home">Home</a>
+
                 <input class="search" type="search" placeholder="Search Pokemon.." aria-label="Search for Pokemon here">
-        </nav>
+
+                <a href="https://github.com/bryanj408" target="_blank" class="github">GitHub</a>
+        </div>
             <!-- polyfills and script tags -->
             <script src="js/promise-polyfill.js"></script>
             <script src="js/fetch-polyfill.js"></script>

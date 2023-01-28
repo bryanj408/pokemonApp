@@ -21,52 +21,49 @@ html {
 }
 
 /* NAVBAR STYLING */
-.navbar {
+.flex-container {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(52, 48, 48);
     position: fixed;
     top: 0;
     width: 100%;
-    display: flex;
     align-items: center;
-    justify-content: center;
     padding: 5px;
-    background-color: rgb(52, 48, 48);
     color: #fff;
 }
 
 .home {
-    position: fixed;
-    left: 45px;
-    top: 15px;
     align-items: center;
     color: rgb(206, 218, 228); 
     font-size: 30px;
     transition: .25s ease;
+    padding: 20px;
     font-family: 'Lilita One', cursive;
 }
 
 .home:hover {
     font-size: 31px;
     transition: .25s ease;
-    position: fixed;
+    /* position: fixed; */
     color: rgb(242, 246, 249);
     text-decoration: underline;
 }
 
 .github {
-    position: fixed;
-    right: 45px;
-    top: 15px;
     align-items: center;
     color: rgb(206, 218, 228); 
     font-size: 30px;
+    padding: 20px;
     transition: .25s ease;
     font-family: 'Lilita One', cursive;
 }
 
 .github:hover {
     font-size: 31px;
+    right: 15px;
     transition: .25s ease;
-    position: fixed;
+    /* position: fixed; */
     color: rgb(242, 246, 249);
     text-decoration: underline;
 }
@@ -235,9 +232,9 @@ ul {
 
 
 /*START responsive css for phones/tablets*/
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 320px) and (max-width: 480px) {
     .pokemon-list {
-        margin-top: 138px;
+        margin-top: 188px;
         text-align: right;
         margin-left: 5%;
         margin-right: 5%;
@@ -245,6 +242,17 @@ ul {
         column-count: 1;
         z-index: 1;
         overflow: hidden;
+    }
+
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(52, 48, 48);
+        top: 0;
+        height: 180px;
+        width: 100%;
     }
 
     .modal {
@@ -269,44 +277,13 @@ ul {
         text-transform: uppercase;
     }
 
-    .navbar {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-        padding-top: 60px;
-        padding-bottom: 8px;
-        background-color: rgb(52, 48, 48);
-        color: #fff;
-    }
-
-    .navbar .search {
-        margin-right: 30px;
-    }
-
     .home {
-        position: fixed;
-        left: 80px;
-        justify-content: center;
-        align-items: center;
-        color: rgb(206, 218, 228); 
-        font-size: 30px;
-        transition: .25s ease;
-        font-family: 'Lilita One', cursive;
+        font-size: 25px;
     }
 
     .github {
-        position: fixed;
-        right: 80px;
-        top: 15px;
-        align-items: center;
-        color: rgb(206, 218, 228); 
-        font-size: 30px;
-        transition: .25s ease;
-        font-family: 'Lilita One', cursive;
+        font-size: 25px;
+        
     }
 }
 
